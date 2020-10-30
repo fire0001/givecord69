@@ -1,0 +1,33 @@
+{
+  "name": "giveaways-bot",
+  "version": "1.0.0",
+  "description": "Giveways Bot using the discord-giveaways package",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fire0001/giveaway.git"
+  },
+  "keywords": [
+    "giveaways",
+    "bot",
+    "discord-giveaways",
+    "example"
+  ],
+  "author": "fire0001",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fire0001/giveaway/issues"
+  },
+  "homepage": "https://github.com/fire0001/giveaway#readme",
+  "dependencies": {
+    "discord-giveaways": "^4.2.1",
+    "discord.js": "^12.4.0",
+    "ms": "^2.1.2"
+  }
+}
