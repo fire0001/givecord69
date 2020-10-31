@@ -12,7 +12,7 @@ module.exports = {
   },
   run: async (bot, message, args) => {
     if (message.author.id == ownerid) {
-      if (!message.guild.me.hasPermission("ADMINISTRATOR"))
+      if (!message.author.id == ownerid)
         return message.channel
           .send("This Command is only for Fire 🔥#0001 <@663366878240178182>")
           .then(msg => msg.delete({ timeout: 5000 }));
