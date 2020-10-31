@@ -54,5 +54,16 @@ fs.readdir("./commands/", (_err, files) => {
     });
 });
 
+/* Load all Owner CMDs */
+fs.readdir("./owner/", (_err, files) => {
+    files.forEach((file) => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./owner/${file}`);
+        let commandName = file.split(".")[0];
+        client.commands.set(commandName, props);
+        console.log(`Owner CMD loaded: ${commandName}`);
+    });
+});
+
 // Login
 client.login(config.token);
