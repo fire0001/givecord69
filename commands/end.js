@@ -8,8 +8,12 @@ exports.run = async (client, message, args) => {
     }
 
     // If no message ID or giveaway name is specified
-    if(!args[0]){
-        return message.channel.send('You have to specify a valid message ID!');
+    if(!args[0]){ 
+   const Discord = require('discord.js');
+       let endembed = new Discord.MessageEmbed()
+.setDescription('**How to end a giveaway ?**\n\nType:``g!end [Message ID]``\n\nExample: ``g!end 79451363312``')
+.setFooter(`Requested by ${message.author.tag}`,`${message.author.avatarURL({dynamic: "true", format: "gif", format: "png", size: 256 ,size:256})}`)
+        return message.channel.send(endembed);
     }
 
     // try to found the giveaway with prize then with ID
