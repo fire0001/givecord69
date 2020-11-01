@@ -1,15 +1,16 @@
 const ms = require('ms');
+const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
-    if(!message.member.hasPermission('MANAGE_GUILD') && !message.member.roles.cache.some((r) => r.name === "Giveaway Sponsor")){
-        return message.channel.send('You do nothave the permissions to reroll the giveaway.');
-    }
+    if(!message.member.hasPermission('MANAGE_GUILD') && !message.member.roles.cache.some((r) => r.name === "Giveaway Sponsor")) return;
 
     // If no message ID or giveaway name is specified
     if(!args[0]){
-        return message.channel.send('You have to specify a valid message ID!');
+const rrembed = new Discord.MessageEmbed()
+.setDescription('**How to reroll a giveaway?** \n\nType:``g!reroll [Message ID]``\nExample :``g!reroll 79561323325``');
+        return message.channel.send(rrembed);
     }
 
     // try to found the giveaway with prize then with ID
@@ -26,10 +27,6 @@ exports.run = async (client, message, args) => {
 
     // Reroll the giveaway
     client.giveawaysManager.reroll(giveaway.messageID)
-    .then(() => {
-        // Success message
-        message.channel.send('Giveaway rerolled!');
-    })
     .catch((e) => {
         if(e.startsWith(`Giveaway with message ID ${giveaway.messageID} is not ended.`)){
             message.channel.send('This giveaway is not ended!');
