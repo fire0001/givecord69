@@ -1,6 +1,6 @@
 {
   "name": "giveaways-bot",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "Giveways Bot using the discord-giveaways package",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   "dependencies": {
     "discord-giveaways": "^4.2.1",
     "discord.js": "^12.4.0",
-    "ms": "^2.1.2"
+    "ms": "^2.1.2",
+    "quick.db": "^7.1.2"
   }
 }
