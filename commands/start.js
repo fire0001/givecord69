@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.hasPermission('MANAGE_GUILD') && !message.member.roles.cache.some((r) => r.name === "Giveaway Sponsor")){
-        return message.channel.send('You Must need the Manage Messages Perm or Giveaways Role role to do do this command');
+        return message.channel.send('You Must need the Manage Messages Perm or Giveaway Sponsor Role to do this command');
     }
 
     // Giveaway channel
@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
     if(!giveawayChannel){ 
        const startembed = new Discord.MessageEmbed()
        .setTitle('My Prefix is ``g!``')
-       .setDescription("**How to start a Giveaway?** \nType : ``g!start [#ChannelName] [Duration] [Winner(s)] [Giveaway Name]`` \n\n**Example:** g!start #blabla 2d 1 Fake Nitro \n\n**Instruction:**\n``[#ChannelName]`` - Where you want to start a giveaway ?\n``[Duration]`` - How long your giveaway is \n1d = 1 Day \n1h = 1 Hour \n1s = 1 Second\n``[Winner(s)]`` - How much Winner You want \n1 - 1 Winner \n2 - 2 Winners ... \n``[Giveaway Name]`` - Name of your Giveaway  \n\n **How to reroll a giveaway?** \nType:``g!reroll [Message ID]``\nExample :``g!reroll 79561323325``\n\n**How to end a giveaway ?**\nType:``g!end [Message ID]``\nExample: ``g!end 79451363312``")
+       .setDescription("**How to start a Giveaway?** \nType : ``g!start [#ChannelName] [Duration] [Winner(s)] [Giveaway Name]`` \n\n**Example:** g!start #blabla 2d 1 Fake Nitro \n\n**Instruction:**\n``[#ChannelName]`` - Where you want to start a giveaway ?\n``[Duration]`` - How long your giveaway is \n1d = 1 Day \n1h = 1 Hour \n1s = 1 Second\n``[Winner(s)]`` - How much Winner You want \n1 - 1 Winner \n2 - 2 Winners ... \n``[Giveaway Name]`` - Name of your Giveaway\nMake a Role Named 'Giveaway Sponsor'. So that the member e able to start a giveaway with Administrator Permissions or Manage Guild Permission!!")
        .setFooter(`Requested by ${message.author.username}`, `${message.author.avatarURL({dynamic: "true", format: "gif", format: "png", size: 256 ,size:256})}`) 
        .setTimestamp();
         return message.channel.send(startembed);
@@ -53,12 +53,12 @@ exports.run = async (client, message, args) => {
         hostedBy: client.config.hostedBy ? message.author : null,
         // Messages
         messages: {
-            giveaway: "🎉🎉 GIVEAWAY 🎉🎉",
+            giveaway: "🎉🎉 GIVEAWAY GOING ON🎉🎉",
             giveawayEnded: "🎉🎉Giveaway Ended🎉🎉",
             timeRemaining: "Time remaining: **{duration}**!",
-            inviteToParticipate: "React with 🎉 to participate!",
+            inviteToParticipate: "*By reacting to this message you agree to get a confirmation Direct Message*",
             winMessage: "Congratulations, {winners}! You won **{prize}**!",
-            embedFooter: "Giveaways",
+            embedFooter: "by reacting to this message you agree to get a confirmation message.",
             noWinner: "Giveaway cancelled, no valid participations.",
             hostedBy: "Hosted by: {user}",
             winners: "winner(s)",
