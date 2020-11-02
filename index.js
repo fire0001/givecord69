@@ -10,7 +10,7 @@ client.config = config;
 const { GiveawaysManager } = require('discord-giveaways');
 client.giveawaysManager = new GiveawaysManager(client, {
     storage: "./giveaways.json",
-    updateCountdownEvery: 5000,
+    updateCountdownEvery: 3000,
     default: {
         botsCanWin: false,
         embedColor: "#FF0000",
@@ -24,7 +24,9 @@ client.giveawaysManager.on("giveawayReactionAdded", (giveaway, member, reaction)
 const em = new Discord.MessageEmbed()
 .setColor(`GREEN`)
 .setTitle(`:mailbox_with_mail: You have successfully entered the giveaway ! :postbox:`)
-.setDescription(`Your Giveaway entry for ${giveaway.prize} has been confirmed! Do not leave the server otherwise your giveaway entry will denied! \n[Giveaway Link](https://discord.com/channels/${giveaway.guildID}/${giveaway.channelID}/${giveaway.messageID})`)
+.setDescription(`Your Giveaway entry for [${giveaway.prize}](https://discord.com/channels/${giveaway.guildID}/${giveaway.channelID}/${giveaway.messageID}) has been confirmed! Do not leave the server otherwise your giveaway entry will denied! `)
+.setFooter('You agreed to get this message by reacting a message')
+.setTimestamp()
 member.send(em).catch(() => console.log(`Failed to DM ` + member.user.tag));
 });
 
@@ -33,8 +35,9 @@ client.giveawaysManager.on("giveawayReactionRemoved", (giveaway, member, guild, 
 const emd = new Discord.MessageEmbed()
 .setColor(`RED`)
 .setTitle(`:mailbox_with_mail: Your giveaway entry was denied! :postbox:`)
-.setDescription(`Your Giveaway entry for ${giveaway.prize} has been denied! You may unreact or left the server! If you think its a mistake then refresh you discord and react again! \n[Giveaway Link](https://discord.com/channels/${giveaway.guildID}/${giveaway.channelID}/${giveaway.messageID})`)
-.setFooter(`Invite **Giv'Cord** in your server! Type g!invite `) 
+.setDescription(`Your Giveaway entry for [${giveaway.prize}](https://discord.com/channels/${giveaway.guildID}/${giveaway.channelID}/${giveaway.messageID}) has been denied! You may unreact or left the server! If you think its a mistake then refresh you discord and react again!`)
+.setFooter(`Invite Giv'Cord in your server! Type g!invite `) 
+.setTimestamp()
    member.send(emd).catch(() => console.log("Failed to DM "+ member.user.tag))
 });
 
