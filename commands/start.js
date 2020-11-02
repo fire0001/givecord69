@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.hasPermission('MANAGE_GUILD') && !message.member.roles.cache.some((r) => r.name === "Giveaway Sponsor")){
-        return message.channel.send('You Must need the Manage Messages Perm or Giveaway Sponsor Role to do this command');
+        return message.channel.send('You Must need the Manage Server Perm or Giveaway Sponsor Role to do this command');
     }
 
     // Giveaway channel
@@ -56,8 +56,8 @@ exports.run = async (client, message, args) => {
             giveaway: "🎉🎉 GIVEAWAY GOING ON🎉🎉",
             giveawayEnded: "🎉🎉Giveaway Ended🎉🎉",
             timeRemaining: "Time remaining: **{duration}**!",
-            inviteToParticipate: "*By reacting to this message you agree to get a confirmation Direct Message*",
-            winMessage: "Congratulations, {winners}! You won **{prize}**!",
+            inviteToParticipate: "React 🎉 to join the Giveaway!",
+            winMessage: "Congratulations, {winners} ! You won **{prize}**!",
             embedFooter: "by reacting to this message you agree to get a confirmation message.",
             noWinner: "Giveaway cancelled, no valid participations.",
             hostedBy: "Hosted by: {user}",
@@ -75,7 +75,7 @@ exports.run = async (client, message, args) => {
 
     message.channel.send(`Giveaway started in ${giveawayChannel}!`)      
       .then(msg => {
-          msg.delete({ timeout: 2000 });
+          msg.delete({ timeout: 1000 });
       })
       .catch(console.error); 
 
