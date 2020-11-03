@@ -110,6 +110,16 @@ client.on('message', async message => {
         }
     } 
 ) 
+//Discord Boats Stats
+
+const BOATS = require('boats.js');
+const Boats = new BOATS('rekJ1WtI7qsNIlBwyZA5lktdU5VvzifUhGyy5Qns6jgltTesbav2N04yOwI3xdzZ3Dcs0KG2TQiUzo71LyGASRhHHiS5E1DlfPPyMRLmtvMMsMCMJtiVj3QskLo7Lu0kvjRxJaEL7kP4lzNVQstB7VIFSPK');
+ 
+Boats.postStats('26', '743116654157889607').then(() => {
+    console.log('Successfully updated server count.')
+}).catch((err) => {
+    console.error(err)
+});
 
 // Login
 client.login(config.token);
