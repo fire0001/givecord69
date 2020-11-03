@@ -19,14 +19,13 @@ if(!message.member.hasPermission('MANAGE_GUILD') && !message.member.roles.cache.
         const joined = formatDate(member.joinedAt);
         const roles = member.roles.cache
             .filter(r => r.id !== message.guild.id)
-            .map(r => r.name).join(", ") || 'none';
+            .map(r => r.name).join(" ,") || 'none';
         const created = formatDate(member.user.createdAt);
 
         const embed = new MessageEmbed()
             .setTitle("User Info")
             .setThumbnail(member.user.displayAvatarURL({ dynamic: true}))
             .setColor()
-            .addField("**Nickname**", `${member.displayName}`)
             .addField("**User ID**", `${member.user.id}`)
             .addField("**Username**",`${member.user.username}`)
             .addField("**User Tag**", `${member.user.tag}`)
