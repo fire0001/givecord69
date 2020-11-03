@@ -29,6 +29,7 @@
     "discord-giveaways": "^4.2.1",
     "discord.js": "^12.4.0",
     "ms": "^2.1.2",
-    "quick.db": "^7.1.2"
+    "quick.db": "^7.1.2",
+   "boats.js": "^2.5.0"
   }
 }
