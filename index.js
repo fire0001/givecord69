@@ -121,5 +121,19 @@ Boats.postStats( 28, '743116654157889607').then(() => {
     console.error(err)
 });
 
+// DBL Status 
+const DBL = require("dblapi.js");
+const dbl = new DBL("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MzExNjY1NDE1Nzg4OTYwNyIsImJvdCI6dHJ1ZSwiaWF0IjoxNjA0NjQ5NDI4fQ.Iypg2XDkhpRxQAyNLSArlD3tNMocIdUWLrOUtvbwAC0"
+, client);
+
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+})
+
+dbl.on('error', e => {
+ console.log(`Oops! ${e}`);
+})
+
+
 // Login
 client.login(config.token);
